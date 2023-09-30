@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search With Recursion</title>
+    <script>
+        let array=[1,3,5,12,23,34,45,53,76];
+        let start = 0;
+        let end = array.length;
+        let value = 53;
+        let position = undefined;
+        function binarySearch(value,start,end){
+            let mid = Math.floor((start+end)/2);
+            if(array[mid]==value){
+                position=mid+1;
+                return true;
+            }else if(array[mid]<value){
+                binarySearch(value,mid+1,end);
+            }else{
+                binarySearch(value,start,mid-1);
+            }
+        }
+        binarySearch(value,start,end);
+        console.log(position);
+
+    </script>
+</head>
+<body>
